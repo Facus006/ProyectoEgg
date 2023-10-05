@@ -101,7 +101,7 @@ public class UsuarioControlador {
     public String actualizarFoto(HttpSession session, MultipartFile archivo) throws MyException {
         Usuario logueado = (Usuario) session.getAttribute("usuariosession");
         usuarioServicio.cambiarFoto(archivo, logueado.getId());
-        return "inicio.html";
+        return "redirect:/inicio";
     }
 
     @GetMapping("/{id}")

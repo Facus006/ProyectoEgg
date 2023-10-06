@@ -182,7 +182,9 @@ span {
 }
 
 #ventana-difuminada,
-#ventana-difuminada2 {
+#ventana-difuminada2,
+#ventana-difuminada4,
+#ventana-difuminada5 {
     position: fixed;
     top: 0;
     left: 0;
@@ -190,7 +192,7 @@ span {
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
-    z-index: 1;
+    z-index: 99;
     justify-content: center;
     align-items: center;
 }

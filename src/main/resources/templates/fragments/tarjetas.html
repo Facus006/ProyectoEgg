@@ -63,8 +63,8 @@
                                     </button>
                                 </div>
                                 <div th:if="${publicacion.megusta.contains(usuariolog)}">
-                                    <div class="boton-like">
-                                        <img th:src="@{/img/corazon.png}" class="icon" alt="Liked">
+                                    <div class="container-like">
+                                        <img style="width: 30px; height: 30px;" th:src="@{/img/corazon.png}" alt="">
                                     </div>
                                 </div>
                             </a>
@@ -80,7 +80,8 @@
                         <button class="boton-acciones" type="submit">Eliminar</button>
                     </form>
                     <form action="/publicacion/borrar/{__${publicacion.id}__}" method="post"
-                        sec:authorize="hasRole('DISENADOR')" th:if="${publicacion.usuario.id == session.usuariosession.id}">
+                        sec:authorize="hasRole('DISENADOR')"
+                        th:if="${publicacion.usuario.id == session.usuariosession.id}">
                         <input type="hidden" name="id" th:value="${publicacion.id}" />
                         <button class="boton-acciones" type="submit">Eliminar</button>
                     </form>

@@ -100,9 +100,14 @@ public class UsuarioControlador {
     // editar foto
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN', 'ROLE_DISENADOR')")
     @PostMapping("/cambiarFoto")
-    public String actualizarFoto(HttpSession session, MultipartFile archivo) throws MyException {
-        Usuario logueado = (Usuario) session.getAttribute("usuariosession");
-        usuarioServicio.cambiarFoto(archivo, logueado.getId());
+    public String actualizarFoto(HttpSession session, MultipartFile archivo,ModelMap modelo) throws MyException {
+        try {
+            Usuario logueado = (Usuario) session.getAttribute("usuariosession");
+            usuarioServicio.cambiarFoto(archivo, logueado.getId());
+        } catch (Exception e) {
+            modelo.put("error", e.getMessage());
+        }
+
         return "redirect:/inicio";
     }
 
